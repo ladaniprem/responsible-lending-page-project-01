@@ -1,0 +1,435 @@
+  header {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  header nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  header nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header nav ul li {
+    margin: 0 30px;
+  }
+  
+  header nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  header nav a:hover {
+    color: black;
+    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  
+  .options {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 2rem 0;
+    overflow: hidden;
+  }
+  
+  .option {
+    flex-basis: calc(33.33% - 2rem);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .option-icon {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: scale(1);
+  }
+  
+  .option-icon img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .option:hover .option-icon {
+    transform: scale(1.1);
+  }
+  
+  .option:hover .option-icon img {
+    transform: scale(1.1);
+  }
+  
+  .animate-text {
+    font-size: 1.2rem;
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    header {
+      flex-direction: column;
+    }
+  
+    header nav ul {
+      flex-direction: column;
+    }
+  
+    header nav ul li {
+      margin: 0;
+    }
+  
+    header nav ul li.split.left {
+      order: 1;
+    }
+  
+    header nav ul li.split.right {
+      order: 2;
+    }
+  
+    header nav .menu-toggle {
+      order: 3;
+      display: block;
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+  
+    header nav .menu-toggle .bar {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background-color: white;
+      margin: 5px 0;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+    header nav .menu-toggle.active .bar:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+    
+    header nav .menu-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+    
+    header nav .menu-toggle.active .bar:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+    
+    @media screen and (min-width: 768px) {
+      header nav .menu-toggle {
+        display: none;
+      }
+    
+      header nav ul li.split.right {
+        display: block;
+      }
+    }
+  }
+
+  @keyframes hamburger-animation {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(0, 10px, 0);
+    }
+  }
+  .menu-toggle {
+    /* Add the following properties to style the button */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: black;
+    cursor: pointer;
+    transition: transform 0.6s ease;
+  }
+  
+  .menu-toggle.active {
+    transform: rotate(90deg);
+  }
+  
+  .menu-toggle .bar {
+    /* Add the following properties to style the bars */
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .menu-toggle .bar:nth-child(1) {
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .menu-toggle .bar:nth-child(2) {
+    transform: translate3d(0, 10px, 0);
+    opacity: 0.5;
+  }
+  
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: translate3d(0, 10px, 0);
+    animation: hamburger-animation 0.3s ease forwards;
+  }
+  
+  .menu-toggle.active .bar:nth-child(2) {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: translate3d(0, -10px, 0);
+    opacity: 0.5;
+  }
+  body {
+    margin: 30px;
+    padding: 30px;
+    background: lightgoldenrodyellow;
+  }
+  .paper {
+    position: absolute;
+    align-items: center;
+    height: 550px;
+    width: 450px;
+    background: rgba(255,255,255,0.9);
+    left: 22%;
+    margin-top:5%;
+    border-top: 10%;
+    box-shadow: 0px 0px 5px 0px #888;
+  }
+  .paper::before {
+    content: '';
+    position: absolute;
+    align-items: center;
+    left: 45px;
+    height: 100%;
+    width: 2px;
+    background: rgba(255,0,0,0.4);
+  }
+  .lines {
+    margin-top: 40px;
+    height: calc(100% - 40px);
+    width: 100%;
+    background-image: repeating-linear-gradient(white 0px, white 24px, steelblue 25px);
+  }
+  .Lettertext {
+    position: absolute;
+    top: 65px;
+    left: 70px;
+    bottom: 20px;
+    right: 10px;
+    line-height: 25px;
+    font-family: 'Bad Script', cursive;
+    font-weight:bold;
+    overflow: hidden;
+    outline: none;
+  }
+  
+  td
+  {
+      padding-inline-end: 50px;
+  }
+  
+  .topgap
+  {
+      margin-top:20%;
+  }
+  
+  .buttonSubmit
+  {
+      margin-top:0px;
+      margin-left:0px;
+  }
+  .contact-form label[for="firstName"],
+  .contact-form label[for="email"]{
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(255, 195, 76);
+    color: white;
+  }
+  /* Apply glow effect on button hover */
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    line-height: 1.5;
+    height: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px 2px rgb(255, 195, 76);
+  }
+
+  .contact-form input[type="text"]:hover,
+  .contact-form input[type="email"]:hover,
+  .contact-form textarea:hover {
+    box-shadow: 0 0 20px 5px rgb(255, 195, 76);
+  }
+  
+  .contact-form input[type="text"]:focus,
+  .contact-form input[type="email"]:focus,
+  .contact-form textarea:focus {
+    box-shadow: 0 0 20px 5px rgb(255, 195, 76);
+  }
+  
+  /* Style the textarea label on hover */
+  .contact-form label:hover {
+    box-shadow: 0 0 10px 2px rgb(255, 195, 76);
+  }
+  
+  /* Style the textarea label on focus */
+  .contact-form label:focus {
+    box-shadow: 0 0 10px 2px rgb(255, 195, 76);
+  }
+  
+  /* Style the textarea label with pulse effect */
+  .contact-form label {
+    animation: pulse 2s infinite;
+  }
+.email-input {
+  transition: box-shadow 0.3s ease;
+}
+
+.email-input:hover {
+  box-shadow: 0 0 10px 2pxrgba(255,195,76);
+} 
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0px rgb(255, 195, 76);
+    }
+    50% {
+      box-shadow: 0 0 10px 10px rgb(255, 195, 76);
+    }
+    100% {
+      box-shadow: 0 0 0 0px rgb(255, 195, 76);
+    }
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .contact-form input, .contact-form label {
+    border: 1px solid rgba(255,195,76);
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: rgba(255,195,76);
+    box-shadow: 0 0 5px 1px rgba(255,195,76);
+    outline: none;
+}
+
+.contact-form input:hover, .contact-form textarea:hover {
+    border-color: rgba(255,195,76);
+    box-shadow: 0 0 5px 1px rgba(255,195,76);
+}
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.contact-form input, .contact-form textarea {
+  border: 1px solid rgb(255, 195, 76);
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-form label[for="lastname"] {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgb(255, 195, 76);
+  color: rgb(255,195,76);
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-form label[for="lastname"] {
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.contact-form label[for="lastname"]::before {
+  content: "Ladani:";
+}
+
+.contact-form input[type="text"],
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  line-height: 1.5;
+  height: 40px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px 2px rgb(255, 195, 76);
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form textarea:focus {
+  box-shadow: 0 0 10px 5px rgb(255, 195, 76);
+}
